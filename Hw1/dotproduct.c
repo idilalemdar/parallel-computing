@@ -18,8 +18,7 @@ double calculateDotProduct(int startIndex, int endIndex){
     return result;
 }
 
-int main(int argc, char **argv){
-
+void experiment(){
     int nproc, rank;
     double sum, overallSum;
 
@@ -36,5 +35,11 @@ int main(int argc, char **argv){
         printf("Result: %f, TimeConsumed: %f\n", overallSum, MPI_Wtime() - startTime);
     }
     MPI_Finalize();
+}
+
+int main(int argc, char **argv){
+    for (int i = 0; i < 10 ; ++i) {
+        experiment();
+    }
     return 0;
 }
