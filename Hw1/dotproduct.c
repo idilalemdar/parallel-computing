@@ -18,28 +18,27 @@ double calculateDotProduct(int startIndex, int endIndex){
     return result;
 }
 
-void experiment(){
-    int nproc, rank;
+void experiment(int nproc, int rank, int volume){
     double sum, overallSum;
-
-    MPI_Init(NULL, NULL);
-
-    MPI_Comm_size(MPI_COMM_WORLD, &nproc);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-    int volume = VEC_SIZE / nproc;
     double startTime = MPI_Wtime();
     sum = calculateDotProduct(rank * volume, (rank + 1) * volume);
     MPI_Reduce(&sum, &overallSum, 1, MPI_DOUBLE, MPI_SUM, ROOT, MPI_COMM_WORLD);
     if (rank == ROOT){
         printf("Result: %f, TimeConsumed: %f\n", overallSum, MPI_Wtime() - startTime);
     }
-    MPI_Finalize();
 }
 
 int main(){
+    int nproc, rank;
+
+    MPI_Init(NULL, NULL);
+    MPI_Comm_size(MPI_COMM_WORLD, &nproc);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    int volume = VEC_SIZE / nproc;
     for (int i = 0; i < 10 ; ++i) {
-        experiment();
+        experiment(nproc, rank, volume);
     }
+    MPI_Finalize();
     return 0;
 }
