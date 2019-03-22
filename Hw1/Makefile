@@ -1,2 +1,2 @@
 all:
-	mpicc dotproduct.c -o dotproduct
+	mpicc -std=gnu11 dotproduct.c -o dotproduct

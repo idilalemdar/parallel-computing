@@ -7,14 +7,16 @@
 #define VEC_SIZE 10000000
 #define ROOT 0
 
-double calculateDotProduct(int startIndex, int endIndex){
+double calculateDotProduct(int howMany){
     double result = 0;
-    int mod;
-    for (int i = startIndex; i < endIndex; ++i) {
-        mod = i % 20;
-        result += (2.0 - mod * 0.1)
-                * (0.1 + mod * 0.1);
+    double vec1 = 2.0;
+    double vec2 = 0.1;
+    for (int i = 0; i < 10; ++i) {
+        result += vec1 * vec2;
+        vec1 -= 0.1;
+        vec2 += 0.1;
     }
+    result *= 2*howMany;
     return result;
 }
 
@@ -29,8 +31,13 @@ int main(int argc, char **argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     int volume = VEC_SIZE / nproc;
-    sum = calculateDotProduct(rank * volume, (rank + 1) * volume);
+
+    double startTime = MPI_Wtime();
+    sum = calculateDotProduct(volume/20);
     MPI_Reduce(&sum, &overallSum, 1, MPI_DOUBLE, MPI_SUM, ROOT, MPI_COMM_WORLD);
+    if (rank == ROOT) {
+        printf("Result:%f TimeConsumed:%f\n", overallSum, MPI_Wtime() - startTime);
+    }
     MPI_Finalize();
     return 0;
 }
