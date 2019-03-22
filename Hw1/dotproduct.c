@@ -29,8 +29,12 @@ int main(int argc, char **argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     int volume = VEC_SIZE / nproc;
+    double startTime = MPI_Wtime();
     sum = calculateDotProduct(rank * volume, (rank + 1) * volume);
     MPI_Reduce(&sum, &overallSum, 1, MPI_DOUBLE, MPI_SUM, ROOT, MPI_COMM_WORLD);
+    if (rank == ROOT){
+        printf("Result: %f, TimeConsumed: %f\n", overallSum, MPI_Wtime() - startTime);
+    }
     MPI_Finalize();
     return 0;
 }
