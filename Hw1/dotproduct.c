@@ -22,7 +22,7 @@ void experiment(){
     int nproc, rank;
     double sum, overallSum;
 
-    MPI_Init(&argc, &argv);
+    MPI_Init(NULL, NULL);
 
     MPI_Comm_size(MPI_COMM_WORLD, &nproc);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -37,7 +37,7 @@ void experiment(){
     MPI_Finalize();
 }
 
-int main(int argc, char **argv){
+int main(){
     for (int i = 0; i < 10 ; ++i) {
         experiment();
     }
