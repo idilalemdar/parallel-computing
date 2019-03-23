@@ -7,16 +7,14 @@
 #define VEC_SIZE 10000000
 #define ROOT 0
 
-double calculateDotProduct(int howMany){
+double calculateDotProduct(int startIndex, int endIndex){
     double result = 0;
-    double vec1 = 2.0;
-    double vec2 = 0.1;
-    for (int i = 0; i < 10; ++i) {
-        result += vec1 * vec2;
-        vec1 -= 0.1;
-        vec2 += 0.1;
+    int mod;
+    for (int i = startIndex; i < endIndex; ++i) {
+        mod = i % 20;
+        result += (2.0 - mod * 0.1)
+                  * (0.1 + mod * 0.1);
     }
-    result *= 2*howMany;
     return result;
 }
 
