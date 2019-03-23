@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=0.7in]{geometry}
+
+\title{CENG478 HW1 Report}
+\author{İdil Zeynep Alemdar}
+\date{23.03.2019}
+
+\begin{document}
+	\begin{titlepage}
+		\maketitle
+	\end{titlepage}
+\section*{Introduction}
+In this homework, I split the task of calculating the dot product of two vectors with length 10000000 each into the number of processors. That is, if a single processor was used, all the calculation was performed as a single batch. If 2 processors were used, each process calculated dot product of 5000000 length halves and then their result is summed. If 4 processors were used, each process calculated dot product of 2500000 length quarters, and so on. I ran 10 experiments for each amount of processors, as can be seen on my code as well. While I was plotting the graph, I first calculated the average runtime for each level of parallelism.
+\section*{a)}
+\section*{b)}
+\section*{c)}
+\end{document}
