@@ -36,7 +36,7 @@ int main(){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     int volume = VEC_SIZE / nproc;
-    for (int i = 0; i < 10 ; ++i) {
+    for (int i = 0; i < 30 ; ++i) {
         experiment(nproc, rank, volume);
     }
     MPI_Finalize();
