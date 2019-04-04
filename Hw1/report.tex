@@ -36,7 +36,7 @@ again recurring for every 20 iterations. This situation makes our task of calcul
 \begin{itemize}
 	\item Multiply first 10 elements of each vector and add them together: $2.0*0.1 + 1.9*0.2+...+1.1*1.0 = 7.7$.
 	\item Then, multiply this result by 2 to obtain the result for the dot product of the first 20 elements: $7.7*2 = 15.4$. 
-	\item Divide 10000000 by 20 to obtain how many 20-length subvectors we have: $10000000/20 = 500000$.
+	\item Divide 10000000 by 20 to obtain how many 20-length subvectors we have: $\frac{10000000}{20} = 500000$.
 	\item Multiply the latter two results to get the overall dot product: $15.4 * 500000 = 7700000$
 \end{itemize}
 \noindent
@@ -60,7 +60,7 @@ Here is the table of relative errors for each number of processors:
 \end{table}
 
 \section*{b)}
-The reason for calculating different results than the theoretical result is the floating point precision.
+The reason for calculating different results than the theoretical result is the floating point precision. It is possible to get exact results at each execution if we calculate the dot product with the method mentioned in part \textbf{a)}. In fact, I tried to implement the \textit{calculateDotProduct} method that way. Instead of multiplying 20-length vector's dot product with 10000000, I multiplied it with the batch size: $\frac{10000000}{\# of processors}$. The reason why we do not get any floating point precision error is the fact that we reuse the same 20-length vector dot product at each part of the vector and while multiplying our primitive result, which is 15.4, with the batch size, we mainly perform multiplication with integers, hence we do not suffer from floating point arithmetic. However, in that case I observed that increasing parallelism increase the execution time. The reason behind this may be the fact that division and multiplication operations are more costly than modulo operation, which in result increase the execution time. So, I decided to implement by calculating modulo of the iterator \textit{i} at each execution.
 \section*{c)}
 Below are the Time vs. Number of processors graphic and Speed Improvement vs. Number of processors graphic of the experiments:\\
 \includegraphics[scale=1]{plot1}\\

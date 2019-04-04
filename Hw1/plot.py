@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import matplotlib.pyplot as plt
 
 processors = [1,2,4,8,16,32]
@@ -37,16 +38,14 @@ def plot1():
 def plot2():
     avgs = prepare()
     single_processor = avgs[0]
-    y = list(map((lambda x: (single_processor/x)), avgs))
-    print(avgs)
-    print(y)
-    print(processors)
-    plt.scatter(processors, y)
+    plt.scatter(processors, list(map((lambda x: (single_processor/x)), avgs)))
     plt.title('Speed Improvement vs. Number of processors')
     plt.xlabel('Number of processors')
     plt.ylabel('Speed improvement (times)')
     plt.savefig("plot2.png")
 
 if __name__ == '__main__':
-    plot1()
-    plot2()
+    if sys.argv[1] == "1":
+        plot1()
+    else:
+        plot2()
