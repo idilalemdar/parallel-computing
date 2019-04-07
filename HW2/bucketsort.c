@@ -55,9 +55,8 @@ double bucketsort(double arr[], int size, int nproc, int rank, int min, int max,
     int end = start + partition;
     double subrange = (max - min) / (nproc * 1.0) + min;
     double startTime = MPI_Wtime();
-    for (int i = start; i < end; ++i) {
+	for (int i = start; i < end; ++i) {
         double val = arr[i];
-        printf("val:%lf", val);
         int bucket = val / subrange;
         *(buckets + bucket*partition + counts[bucket]++) = val;
     }
@@ -129,11 +128,12 @@ int main(){
     double times[nproc];
     MPI_Allgather(&timeElapsed, 1, MPI_DOUBLE, times, 1, MPI_DOUBLE, MPI_COMM_WORLD);
     double avgTimeElapsed = average(times, nproc);
-    if (rank == 0){
+	double reduce[size];
+	MPI_Allreduce(res_arr, reduce, size, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+	if(rank == 0){
         printf("bucketsort: %lf\n", avgTimeElapsed);
-        //for(i=0;i<size;i++) printf("%lf\n",res_arr[i]);
-    }
-
+        for(i=0;i<size;i++) printf("%lf\n",reduce[i]);
+}
     MPI_Finalize();
     free(arr);
     free(res_arr);
