@@ -22,7 +22,7 @@ void quicksort(double a[], int n) {
     quicksort(c,k);
     for (i=0; i<j; i++) a[i] =b[i];
     a[j] = p;
-    for (i= 0; i<k; i++) a[j+1+i] =c[i]; 
+    for (i= 0; i<k; i++) a[j+1+i] =c[i];
 }
 
 int main()
