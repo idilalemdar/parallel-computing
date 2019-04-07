@@ -92,6 +92,14 @@ double bucketsort(double arr[], int size, int nproc, int rank, int min, int max,
     return endTime - startTime;
 }
 
+double average(double times[], int n){
+    double sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += times[i];
+    }
+    return sum / n;
+}
+
 int main(){
 
     FILE *fp;
@@ -117,9 +125,13 @@ int main(){
     double *res_arr = (double*) calloc(size,sizeof(double));
 
     double timeElapsed = bucketsort(arr, size, nproc, rank, min, max, res_arr);
-
-    printf("bucketsort: %lf\n", timeElapsed);
-    for(i=0;i<size;i++) printf("%lf\n",res_arr[i]);
+    double times[nproc];
+    MPI_Allgather(&timeElapsed, 1, MPI_DOUBLE, times, 1, MPI_DOUBLE, MPI_COMM_WORLD);
+    double avgTimeElapsed = average(times, nproc);
+    if (rank == 0){
+        printf("bucketsort: %lf\n", avgTimeElapsed);
+        for(i=0;i<size;i++) printf("%lf\n",res_arr[i]);
+    }
 
     MPI_Finalize();
     free(arr);
