@@ -32,15 +32,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20812842-3e0f-4145-9f56-9b2dc7a4f9df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_1.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_16.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_2.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_32.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_4.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exec_8.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixMultiplication.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../HW2/bucketsort.c" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/bucketsort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_16.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_32.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_32.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/out_serial.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/out_serial.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW2/quicksort.c" beforeDir="false" afterPath="$PROJECT_DIR$/../HW2/quicksort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HW3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_16.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_16.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_32.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_32.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_4.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_4.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec_8.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exec_8.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixMultiplication" beforeDir="false" afterPath="$PROJECT_DIR$/matrixMultiplication" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixMultiplication.c" beforeDir="false" afterPath="$PROJECT_DIR$/matrixMultiplication.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw0.rar" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw0.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw0/helloworld.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw0/helloworld.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw0/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw0/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw0/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw0/test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/16_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/16_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/1_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/1_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/2_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/2_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/32_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/32_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/4_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/4_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/8_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/8_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/dotproduct.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/dotproduct.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/report.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/report.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/report.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/report.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/report.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/report.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hw1/report.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../Hw1/report.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../test.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/matrixMultiplication.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+            <state relative-caret-position="260">
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -114,6 +149,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,10 +161,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -160,17 +196,20 @@
       <option name="presentableId" value="Default" />
       <updated>1557076715301</updated>
       <workItem from="1557076716461" duration="3562000" />
-      <workItem from="1557130809256" duration="1680000" />
+      <workItem from="1557130809256" duration="3009000" />
+      <workItem from="1557144085627" duration="417000" />
+      <workItem from="1557153584952" duration="1829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5242000" />
+    <option name="totallyTimeSpent" value="8817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15802075" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16280925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -183,7 +222,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TeamCity" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5407166" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5407166" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -239,8 +278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/matrixMultiplication.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+        <state relative-caret-position="260">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
         </state>
       </provider>
     </entry>
