@@ -133,7 +133,7 @@ int main(){
 	if(rank == 0){
         printf("bucketsort: %lf\n", avgTimeElapsed);
         for(i=0;i<size;i++) printf("%lf\n",reduce[i]);
-}
+    }
     MPI_Finalize();
     free(arr);
     free(res_arr);
