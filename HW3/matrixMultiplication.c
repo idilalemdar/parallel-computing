@@ -64,7 +64,9 @@ int main(){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     double timeElapsed = matrixMultiplication(nproc, rank, resultMatrix, matrixB);
-    double norm = frobeniusNorm(resultMatrix);
+    double reduce[N*N];
+    MPI_Allreduce(resultMatrix, reduce, N*N, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+    double norm = frobeniusNorm(reduce);
     printf("Time elapsed:%f Frobenius Norm: %f\n", timeElapsed, norm);
 
     MPI_Finalize();
