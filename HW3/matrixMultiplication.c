@@ -24,19 +24,17 @@ double matrixMultiplication(int nproc, int rank, double *resultMatrix, double* m
     int batch = N / nproc;
     int start = rank * batch;
     int end = (rank + 1) * batch;
-    int m = 0;
-    double i1 = 1.0;
+    int m;
     int index;
     double startTime = MPI_Wtime();
     for (int i = start; i < end; ++i) {
+        m = i * N;
         for (int j = 0; j < N; ++j) {
             index = m + j;
             for (int k = 0; k < N; ++k) {
-                resultMatrix[index] += (i1 /(k + 1.0)) * (*(matrixB + k * N + j));
+                resultMatrix[index] += ((i + 1) /(k + 1.0)) * (*(matrixB + k * N + j));
             }
         }
-        m += N;
-        i1++;
     }
     double endTime = MPI_Wtime();
     return endTime - startTime;
@@ -46,8 +44,9 @@ void populateMatrixB(double *matrixB){
     for (int i = 0; i < N; ++i) {
         double i1 = i + 1;
         int row = i * N;
+        float denom = N*1.0;
         for (int j = 0; j < N; ++j) {
-            *(matrixB + row + j) = i1 - (j + 1)/3200.0;
+            *(matrixB + row + j) = i1 - (j + 1)/denom;
         }
     }
 }
@@ -72,6 +71,7 @@ int main(){
     double *reduce = (double *)calloc(nSquared, sizeof(double));
 
     MPI_Allreduce(resultMatrix, reduce, nSquared, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+
     double norm = frobeniusNorm(reduce);
     printf("Time elapsed:%f Frobenius Norm: %f\n", timeElapsed, norm);
 
