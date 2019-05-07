@@ -10,11 +10,12 @@
 
 double frobeniusNorm(double *matrix){
     double result = 0;
+    int row = 0;
     for (int i = 0; i < N; ++i) {
-        int row = i * N;
         for (int j = 0; j < N; ++j) {
             result += pow(*(matrix + row + j), 2);
         }
+        row += N;
     }
     return sqrt(result);
 }
