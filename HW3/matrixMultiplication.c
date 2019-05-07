@@ -24,9 +24,9 @@ double matrixMultiplication(int nproc, int rank, double *resultMatrix, double* m
     int start = rank * batch;
     int end = (rank + 1) * batch;
     int m = 0;
-    double startTime = MPI_Wtime();
     double i1 = 1.0;
     int index;
+    double startTime = MPI_Wtime();
     for (int i = start; i < end; ++i) {
         for (int j = 0; j < N; ++j) {
             index = m + j;
