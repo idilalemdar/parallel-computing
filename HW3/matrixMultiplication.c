@@ -28,10 +28,10 @@ double matrixMultiplication(int nproc, int rank, double *resultMatrix, double* m
     for (int i = start; i < end; ++i) {
         m = i * N;
         for (int j = 0; j < N; ++j) {
-            m += j;
             for (int k = 0; k < N; ++k) {
                 resultMatrix[m] += ((i + 1.0)/(k + 1.0)) * (*(matrixB + k * N + j));
             }
+            m++;
         }
     }
     double endTime = MPI_Wtime();
@@ -49,13 +49,14 @@ void populateMatrixB(double *matrixB){
 }
 
 int main(){
+    MPI_Init(NULL, NULL);
+    int nSquared = N*N;
+
     double *resultMatrix;
     double *matrixB;
-    resultMatrix = (double *)calloc(N*N, sizeof(double));
-    matrixB = (double *)calloc(N*N, sizeof(double));
+    resultMatrix = (double *)calloc(nSquared, sizeof(double));
+    matrixB = (double *)calloc(nSquared, sizeof(double));
     populateMatrixB(matrixB);
-
-    MPI_Init(NULL, NULL);
 
     int nproc;
     MPI_Comm_size(MPI_COMM_WORLD, &nproc);
@@ -64,8 +65,10 @@ int main(){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     double timeElapsed = matrixMultiplication(nproc, rank, resultMatrix, matrixB);
-    double reduce[N*N];
-    MPI_Allreduce(resultMatrix, reduce, N*N, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+    printf("time elapsed:%f\n", timeElapsed);
+    double *reduce = (double *)calloc(nSquared, sizeof(double));
+
+    MPI_Allreduce(resultMatrix, reduce, nSquared, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
     double norm = frobeniusNorm(reduce);
     printf("Time elapsed:%f Frobenius Norm: %f\n", timeElapsed, norm);
 
@@ -73,5 +76,6 @@ int main(){
 
     free(resultMatrix);
     free(matrixB);
+    free(reduce);
     return 0;
 }
