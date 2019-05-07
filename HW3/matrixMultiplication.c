@@ -23,16 +23,19 @@ double matrixMultiplication(int nproc, int rank, double *resultMatrix, double* m
     int batch = N / nproc;
     int start = rank * batch;
     int end = (rank + 1) * batch;
-    int m;
+    int m = 0;
     double startTime = MPI_Wtime();
+    double i1 = 1.0;
+    int index;
     for (int i = start; i < end; ++i) {
-        m = i * N;
         for (int j = 0; j < N; ++j) {
+            index = m + j;
             for (int k = 0; k < N; ++k) {
-                resultMatrix[m] += ((i + 1.0)/(k + 1.0)) * (*(matrixB + k * N + j));
+                resultMatrix[index] += (i1 /(k + 1.0)) * (*(matrixB + k * N + j));
             }
-            m++;
         }
+        m += N;
+        i1++;
     }
     double endTime = MPI_Wtime();
     return endTime - startTime;
@@ -65,7 +68,6 @@ int main(){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     double timeElapsed = matrixMultiplication(nproc, rank, resultMatrix, matrixB);
-    printf("time elapsed:%f\n", timeElapsed);
     double *reduce = (double *)calloc(nSquared, sizeof(double));
 
     MPI_Allreduce(resultMatrix, reduce, nSquared, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
