@@ -26,7 +26,7 @@ coordinate coors[INIT_COORS] = {{3,13}, {3,14},
                       {6,1}, {6,2}, {6,11}, {6,15}, {6,17},{6,18},{6,23}, {6,24}, {6,29},
                       {7,1}, {7,2}, {7,6}, {7,11}, {7,17}, {7,30},
                       {8,6}, {8,12}, {8,16},
-                      {9,12}, {9,14}, {9,19}, {9,20},
+                      {9,13}, {9,14}, {9,19}, {9,20},
                       {10,19}, {10,21}, {10,34}, {10,35}, {10,36},
                       {11,19}, {11,33}, {11,34}, {11,35},
                       {12,2}, {12,3},
@@ -60,6 +60,9 @@ int countNeighbors(int* matrix, int r, int c){
 
 int move(int* old, int* new, int nproc, int rank){
     int count = 0;
+
+    int* newSource = (int*)calloc(SIZE * SIZE, sizeof(int));
+
     int processPerDimension = (int)sqrt(nproc);
     int partition = SIZE / processPerDimension;
 
@@ -77,33 +80,47 @@ int move(int* old, int* new, int nproc, int rank){
             int neighborCount = countNeighbors(old, i , j);
             if (*(old + iSize + j) == 1) {  // live cell
                 if (neighborCount == 2 || neighborCount == 3) { // goes on living
-                    *(new + iSize + j) = 1;
+                    *(newSource + iSize + j) = 1;
                     count++;
                 } // else, dies
-                *(old + iSize + j) = 0;
             } else { // dead cell
                 if (neighborCount == 3){ // reproduction
-                    *(new + iSize + j) = 1;
+                    *(newSource + iSize + j) = 1;
                     count++;
                 }
             }
         }
     }
+    MPI_Allreduce(newSource, new, SIZE*SIZE, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+    free(newSource);
     return count;
+}
+
+void clearOld(int* matrix){
+    int iterCount = SIZE * SIZE;
+    for (int i = 0; i < iterCount; ++i) {
+        *(matrix + i) = 0;
+    }
 }
 
 result play(int* matrix, int steps, int nproc, int rank){
     int* temp;
     int* old = matrix;
-    int* new = (int*)calloc(SIZE * SIZE, sizeof(int));
-    int* buffer = new;
+    int* buffer = (int*)calloc(SIZE * SIZE, sizeof(int));
+    int* new = buffer;
     int count;
     int totalCount;
     double start = MPI_Wtime();
-    for (int i = 0; i < steps; ++i) {
+    for (int i = 0; i < 1; ++i) {
         count = move(old, new, nproc, rank);
-        MPI_Allreduce(new, new, SIZE*SIZE, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
-        MPI_Allreduce(old, old, SIZE*SIZE, MPI_INT, MPI_PROD, MPI_COMM_WORLD);
+        for (int j = 0; j < 20; ++j) {
+            for (int k = 0; k < 40; ++k) {
+                printf("%d ", *(new + j*SIZE+k));
+            }
+            printf("\n");
+        }
+        printf("count:%d\n", count);
+        clearOld(old);
         temp = new;
         new = old;
         old = temp;
@@ -119,6 +136,13 @@ result play(int* matrix, int steps, int nproc, int rank){
 int main(int argc, char* argv[]){
     int* matrix = (int*)calloc(SIZE * SIZE, sizeof(int));
     initialize(matrix);
+    for (int j = 0; j < 20; ++j) {
+        for (int k = 0; k < 40; ++k) {
+            printf("%d ", *(matrix + j*SIZE+k));
+        }
+        printf("\n");
+    }
+    printf("\n");
 
     MPI_Init(&argc, &argv);
     int steps = atoi(argv[1]);
@@ -131,7 +155,7 @@ int main(int argc, char* argv[]){
 
     result res = play(matrix, steps, nproc, rank);
 
-    printf("NumberOfFilledCells:%d, TotalTimeConsumed: %f", res.cellCount, res.timeElapsed);
+    printf("NumberOfFilledCells:%d, TotalTimeConsumed: %f\n", res.cellCount, res.timeElapsed);
 
     MPI_Finalize();
     free(matrix);
