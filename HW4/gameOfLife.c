@@ -113,13 +113,6 @@ result play(int* matrix, int steps, int nproc, int rank){
     double start = MPI_Wtime();
     for (int i = 0; i < 1; ++i) {
         count = move(old, new, nproc, rank);
-        for (int j = 0; j < 20; ++j) {
-            for (int k = 0; k < 40; ++k) {
-                printf("%d ", *(new + j*SIZE+k));
-            }
-            printf("\n");
-        }
-        printf("count:%d\n", count);
         clearOld(old);
         temp = new;
         new = old;
@@ -136,13 +129,6 @@ result play(int* matrix, int steps, int nproc, int rank){
 int main(int argc, char* argv[]){
     int* matrix = (int*)calloc(SIZE * SIZE, sizeof(int));
     initialize(matrix);
-    for (int j = 0; j < 20; ++j) {
-        for (int k = 0; k < 40; ++k) {
-            printf("%d ", *(matrix + j*SIZE+k));
-        }
-        printf("\n");
-    }
-    printf("\n");
 
     MPI_Init(&argc, &argv);
     int steps = atoi(argv[1]);

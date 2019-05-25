@@ -1,0 +1,4 @@
+NumberOfFilledCells:58, TotalTimeConsumed: 0.009786
+NumberOfFilledCells:58, TotalTimeConsumed: 0.009785
+NumberOfFilledCells:58, TotalTimeConsumed: 0.009795
+NumberOfFilledCells:58, TotalTimeConsumed: 0.009798
