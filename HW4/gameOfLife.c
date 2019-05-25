@@ -111,7 +111,7 @@ result play(int* matrix, int steps, int nproc, int rank){
     int count;
     int totalCount;
     double start = MPI_Wtime();
-    for (int i = 0; i < 1; ++i) {
+    for (int i = 0; i < steps; ++i) {
         count = move(old, new, nproc, rank);
         clearOld(old);
         temp = new;
